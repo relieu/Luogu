@@ -4,7 +4,7 @@
         {
             "type": "cppbuild",
             "label": "GCC Build C/C++ Code in Debug Mode", //TODO: Release Mode with O2 Optimize Task
-            "command": "/usr/bin/gcc",
+            "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
