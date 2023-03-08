@@ -1,5 +1,32 @@
 {
     "code-runner.clearPreviousOutput": true,
     "code-runner.saveFileBeforeRun": true,
-    "code-runner.runInTerminal": true
+    "code-runner.runInTerminal": true,
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "clangd.arguments": [
+        // 让 Clangd 生成更详细的日志
+        "--log=verbose",
+        // 输出的 JSON 文件更美观
+        "--pretty",
+        // 全局补全(输入时弹出的建议将会提供 CMakeLists.txt 里配置的所有文件中可能的符号，会自动补充头文件)
+        "--all-scopes-completion",
+        // 建议风格：打包(重载函数只会给出一个建议）
+        // 相反可以设置为detailed
+        "--completion-style=detailed",
+        // 跨文件重命名变量
+        "--cross-file-rename",
+        // 允许补充头文件
+        "--header-insertion=iwyu",
+        // 输入建议中，已包含头文件的项与还未包含头文件的项会以圆点加以区分
+        "--header-insertion-decorators",
+        "--clang-tidy",
+        // Clang-Tidy 静态检查的参数，指出按照哪些规则进行静态检查，详情见「与按照官方文档配置好的 VSCode 相比拥有的优势」
+        // 参数后部分的*表示通配符
+        // 在参数前加入-，如-modernize-use-trailing-return-type，将会禁用某一规则
+        "--clang-tidy-checks=performance-*,bugprone-*,portability-*"
+    ],
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.autocompleteAddParentheses": true,
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "clangd.restartAfterCrash": false
 }
